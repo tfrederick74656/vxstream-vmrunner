@@ -2,8 +2,8 @@
 
 ### ABOUT
 This is a tool to address two major bugs in [VxStream Sandbox](https://www.vxstream-sandbox.com/)'s support for VMware ESXi:
-* Calls to the VMware VIX API binary (vmrun) are sent unquoted, which is typically fine for controlling WVMware Workstation instances where pathnames are contiguous, but fails miserably when dealing with ESXi datastore paths, such as `[datastore1] VM1/VM1.vmx`.
-* VxStream Sandbox seems to expect the 'vmrun list' command to return a full path to the VMDK file, instead of to the VMX file. In order for interaction to succeed, a return string such as `[h1-datastore/datastore1] VM1/VM1.vmx` needs to be patched to `[datastore1] VM1/VM1_0-000001.vmdk`.
+* Calls to the VMware VIX API binary (vmrun) are sent unquoted, which is typically fine for controlling VMware Workstation instances where pathnames are contiguous, but fails miserably when dealing with ESXi datastore paths, such as `[datastore1] VM1/VM1.vmx`.
+* VxStream Sandbox seems to expect the 'vmrun list' command to return a full path to the VMDK file, instead of to the VMX file. In order for interaction to succeed, a return string such as `[ha-datastore/datastore1] VM1/VM1.vmx` needs to be patched to `[datastore1] VM1/VM1_0-000001.vmdk`.
 
 ### USAGE
 * Follow all of the steps on [How to setup a VMWare guest](https://team.vxstream-sandbox.com/display/VSS/How+to+setup+a+VMWare+guest).
