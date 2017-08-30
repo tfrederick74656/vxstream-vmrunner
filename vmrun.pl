@@ -1,6 +1,6 @@
 #########################################################################
 # vmrun Wrapper for VxStream Sandbox					#
-# Version 2.00, Updated 08/29/2018					#
+# Version 2.10, Updated 08/30/2018					#
 # © Tyler Frederick (tyler.frederick@securityriskadvisors.com)		#
 #########################################################################
 
@@ -21,8 +21,8 @@ use constant LOG_LEVEL_WARN  => 2;
 use constant LOG_LEVEL_INFO  => 3;
 use constant LOG_LEVEL_DEBUG => 4;
 use constant COMMAND_LIST => 'start|stop|reset|suspend|pause|unpause|listSnapshots|snapshot|deleteSnapshot|revertToSnapshot|runProgramInGuest|fileExistsInGuest|directoryExistsInGuest|setSharedFolderState|addSharedFolder|removeSharedFolder|enableSharedFolders|disableSharedFolders|listProcessesInGuest|killProcessInGuest|runScriptInGuest|deleteFileInGuest|createDirectoryInGuest|deleteDirectoryInGuest|createTempfileInGuest|listDirectoryInGuest|copyFileFromHostToGuest|copyFileFromGuestToHost|renameFileInGuest|captureScreen|writeVariable|readVariable|getGuestIPAddress|vprobeVersion|vprobeLoad|vprobeLoadFile|vprobeReset|vprobeListProbes|vprobeListGLobals|list|upgradevm|installTools|checkToolsState|register|unregister|listRegisteredVM|deleteVM|clone';
-use constant CMDLIST_NOARGS => 'start|stop|reset|suspend|pause|unpause|listSnapshots|enableSharedFolders|disableSharedFolders|listProcessesInGuest|killProcessInGuest|CreateTempfileInGuest|getGuestIPAddress|vprobeVersion|vprobeReset|vprobeListProbes|vprobeListGLobals|list|upgradevm|installTools|checkToolsState|register|unregister|listRegisteredVM|deleteVM';
-use constant CMDLIST_STRAIGHTARGS => 'start|stop|reset|suspend|listSnapshots|enableSharedSolders|disableSharedFolders|killProcessInGuest|getGuestIPAddress';
+use constant CMDLIST_NOARGS => 'pause|unpause|listProcessesInGuest|CreateTempfileInGuest|vprobeVersion|vprobeReset|vprobeListProbes|vprobeListGlobals|list|upgradevm|installTools|checkToolsState|register|unregister|listRegisteredVM|deleteVM';
+use constant CMDLIST_STRAIGHTARGS => 'start|stop|reset|suspend|listSnapshots|enableSharedFolders|disableSharedFolders|killProcessInGuest|getGuestIPAddress';
 use constant CMDLIST_QUOTESONLY => 'snapshot|revertToSnapshot|fileExistsInGuest|directoryExistsInGuest|removeSharedFolder|deleteFileInGuest|createDirectoryInGuest|deleteDirectoryInGuest|listDirectoryInGuest|captureScreen|vprobeLoad|vprobeLoadFile';
 use constant CMDLIST_COPYFILE => 'copyFileFromHostToGuest|copyFileFromGuestToHost';
 use constant CMDLIST_RUNPROGRAM => 'runProgramInGuest';
@@ -42,7 +42,9 @@ sub logMsg {
 }
 sub logExit {
         logMsg (LOG_LEVEL_WARN, 'LOG', 'Session Completed at '.localtime);
-        close $log;
+        if (defined $log) {
+		close $log;
+	}
 }
 
 # Parse Arguments
