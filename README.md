@@ -17,7 +17,7 @@ This is a tool to address two major bugs in [VxStream Sandbox](https://www.vxstr
 * The script can be executed manually simply by passing it a vmrun argument list. E.x. `vmrun.sh -T esx -h hostname -u username -p password -gu guestuser -gp guestpassword copyFileFromHostToGuest, [datastore] VM/VM.vmx /some/local/file C:\remotefile`
 * A list of supported commands is provided below. This is not inclusive of all vmrun commands, and may not account for all commands issued by VxStream.
 
-### Supported Commands
+### SUPPORTED COMMANDS
 `captureScreen`, `checkToolsState`, `copyFileFromGuestToHost`, `copyFileFromHostToGuest`, `createDirectoryInGuest`, `CreateTempfileInGuest`, `deleteDirectoryInGuest`, `deleteFileInGuest`, `deleteVM`, `directoryExistsInGuest`, `disableSharedFolders`, `enableSharedFolders`, `fileExistsInGuest`, `getGuestIPAddress`, `installTools`, `killProcessInGuest`, `list`, `listDirectoryInGuest`, `listProcessesInGuest`, `listRegisteredVM`, `listSnapshots`, `pause`, `register`, `removeSharedFolder`, `reset`, `revertToSnapshot`, `runProgramInGuest`, `snapshot`, `start`, `stop`, `suspend`, `unpause`, `unregister`, `upgradevm`, `vprobeListGlobals`, `vprobeListProbes`, `vprobeLoad`, `vprobeLoadFile`, `vprobeReset`, `vprobeVersion`
 
 ### DISCLAIMER
