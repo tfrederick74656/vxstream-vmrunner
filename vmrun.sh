@@ -1,6 +1,6 @@
 #########################################################################
 # vmrun Wrapper for VxStream Sandbox                                    #
-# Version 2.10, Updated 08/30/2018                                      #
+# Version 2.10, Updated 08/30/2017                                      #
 # © Tyler Frederick (tyler.frederick@securityriskadvisors.com)          #
 #########################################################################
 
